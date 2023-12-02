@@ -1,5 +1,5 @@
 {
-  "name": "noteapp",
+  "name": "phone-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
     "logs:prod": "heroku logs --tail"
   },
-  "author": "",
+  "author": "felipeverdugo <felipeverdugo016@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
@@ -22,5 +22,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": "https://github.com/felipeverdugo/backend.git"
 }
