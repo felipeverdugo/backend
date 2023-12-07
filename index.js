@@ -10,25 +10,23 @@ app.use(morgan('tiny'))
 
 app.use(cors())
 
-
 let persons = [
   {
     id: 1,
-    name: "felipe",
-    number: "2022-01-10",
+    name: 'felipe',
+    number: '2022-01-10'
   },
   {
     id: 2,
-    name: "blas",
-    number: "2022-01-10",
+    name: 'blas',
+    number: '2022-01-10'
   },
   {
     id: 3,
-    name: "clau",
-    number: "2022-01-10",
-  },
+    name: 'clau',
+    number: '2022-01-10'
+  }
 ]
-
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
@@ -44,18 +42,18 @@ const generateId = () => {
 morgan.token('content', function (req, res) { return JSON.stringify(req.body) })
 // morgan(':method :url :status :res[content-length] - :response-time ms :content')
 
-app.post('/api/persons',morgan(':content'), (request, response) => {
+app.post('/api/persons', morgan(':content'), (request, response) => {
   const body = request.body
   if (!body.name || !body.number) {
-    return response.status(400).json({ 
-      error: 'content missing' 
-    })}
-
-  if (persons.some(person => person.name === body.name) ){
-    return response.status(400).json({ 
-      error: 'name must be unique' 
+    return response.status(400).json({
+      error: 'content missing'
     })
+  }
 
+  if (persons.some(person => person.name === body.name)) {
+    return response.status(400).json({
+      error: 'name must be unique'
+    })
   }
 
   const person = {
